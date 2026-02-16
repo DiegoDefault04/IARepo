@@ -95,6 +95,178 @@ salida = activación((x · w) + b)
 
 ---
 
+## 📌 ¿Qué es una red neuronal?
+
+Una **red neuronal** es una forma en la que una computadora aprende a **tomar decisiones**, inspirada en el cerebro humano.
+
+- Aprende con ejemplos
+- Se equivoca
+- Corrige
+- Mejora con la práctica
+
+📌 *No piensa como un humano, pero aprende ajustando números.*
+
+---
+
+## 🧩 Ejemplo práctico
+
+### ❓ Pregunta que resolverá la red
+**¿Debo ponerme chamarra? 🧥**
+
+---
+
+## 🟦 Paso 1: Entradas (lo que la red recibe)
+
+La red recibe información del entorno:
+
+```
+🌡️ Temperatura = 10°C
+🌬️ Viento = fuerte
+🌧️ Lluvia = sí
+```
+
+La red solo entiende números:
+
+```
+x1 = 10   (temperatura)
+x2 = 1    (viento fuerte)
+x3 = 1    (lluvia)
+```
+
+### Dibujo:
+```
+[ 10 ]   [ 1 ]   [ 1 ]
+  🌡️      🌬️      🌧️
+```
+
+---
+
+## ⚖️ Paso 2: Pesos (importancia de cada dato)
+
+La red decide qué tan importante es cada cosa:
+
+```
+w1 = 0.6  → temperatura (muy importante)
+w2 = 0.3  → viento (importancia media)
+w3 = 0.1  → lluvia (poca importancia)
+```
+
+### Dibujo:
+```
+[10] --×0.6-->
+[ 1] --×0.3-->
+[ 1] --×0.1-->
+```
+
+---
+
+## 🧮 Paso 3: Multiplicar y sumar
+
+La neurona hace este cálculo:
+
+```
+(10 × 0.6) = 6
+(1 × 0.3)  = 0.3
+(1 × 0.1)  = 0.1
+----------------
+Suma = 6.4
+```
+
+### Dibujo:
+```
+   6
+ + 0.3
+ + 0.1
+ ------
+   6.4
+```
+
+🧠 *"Parece que hace frío"*
+
+---
+
+## ➕ Paso 4: Bias (personalidad de la neurona)
+
+El **bias** ajusta la decisión final.
+
+Ejemplo:
+```
+bias = -5
+
+6.4 - 5 = 1.4
+```
+
+### Dibujo:
+```
+   6.4
+ - 5.0
+ ------
+   1.4
+```
+
+---
+
+## 🚦 Paso 5: Función de activación (decisión final)
+
+Regla simple:
+
+```
+Si resultado > 0  → 🧥 Sí chamarra
+Si resultado ≤ 0  → ❌ No chamarra
+```
+
+Resultado:
+```
+1.4 > 0 → 🧥 SÍ
+```
+
+### Dibujo final:
+```
+        🟣
+     ┌───────────┐
+     │ ¿Chamarra?│
+     └───────────┘
+            ↓
+          🧥 SÍ
+```
+
+---
+
+## 🧠 Todo el proceso junto
+
+```
+[10]   [1]   [1]
+ 🌡️    🌬️    🌧️
+  |     |     |
+ ×0.6  ×0.3  ×0.1
+  |     |     |
+  6   +0.3  +0.1
+        ↓
+      6.4
+        ↓
+     bias -5
+        ↓
+      1.4
+        ↓
+   FUNCIÓN
+        ↓
+      🧥 SÍ
+```
+
+---
+
+## 🔁 ¿Cómo aprende una red neuronal?
+
+1. Da una respuesta
+2. Se compara con la respuesta correcta
+3. Calcula el error
+4. Ajusta los pesos y el bias
+5. Repite miles de veces
+
+📌 *Aprende igual que una persona practicando.*
+
+---
+
 ## ⚡ Funciones de activación
 
 - ReLU (la más usada)
